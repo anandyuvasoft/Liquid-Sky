@@ -6,11 +6,11 @@
 #
 
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: 5
-  username: root
-  password: root
+  username: postgres
+  password: cisin123
 
 
 development:
@@ -24,6 +24,3 @@ test:
   <<: *default
   database: demo_project_test
 
-production:
-  <<: *default
-  database: demo_project_prod
