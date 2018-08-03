@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+//= require jquery
+//= require dataTables/jquery.dataTables
+//= require leaflet
 //= require_tree .

@@ -1,0 +1,33 @@
+.dashboard
+
+  .container-fluid.bg-1
+    = form_tag root_path, method: :get, class: 'form-inline' do
+      .form-group.col-md-2.col-md-offset-1
+        = select_tag :gender, options_for_select([ "Male", "Female" ], params[:gender]),class: 'form-control input-lg',prompt:' Select gender'
+      .form-group.col-md-3= text_field_tag :address, params[:search],class: 'form-control input-lg', value: params[:address], placeholder: 'Indore'
+      .form-group.col-md-3= text_field_tag :disease, params[:disease],class: 'form-control input-lg', value: params[:disease], placeholder: 'Malaria'
+      = submit_tag "Search", class: 'btn btn-default input-lg col-md-2'
+
+
+#map
+
+javascript:
+  var mymap = L.map('map').setView([22.7195687, 75.8577258], 13);
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYW5hbmR5dXZhc29mdCIsImEiOiJjamtkbXAxOXcwMHlsM3Byd20wbjQwbXI1In0.sCMMYUaUtqpWS9P4tNxQBQ', {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>', maxZoom: 18, id: 'mapbox.streets',accessToken: 'pk.eyJ1IjoiYW5hbmR5dXZhc29mdCIsImEiOiJjamtkbXAxOXcwMHlsM3Byd20wbjQwbXI1In0.sCMMYUaUtqpWS9P4tNxQBQ'}).addTo(mymap);
+
+  var locations = #{ @locations.to_json.html_safe} ;
+
+  for (var i=0; i<locations.length; i+=1){
+    var marker = L.marker([locations[i].latitude, locations[i].longitude]).addTo(mymap);
+    marker.bindPopup("<p><b>Name: "+locations[i].first_name+" "+locations[i].last_name+", "+locations[i].gender+"<br>"+locations[i].address+"<b></p>").openPopup();
+  }
+
+
+
+
+
+
+
+
+

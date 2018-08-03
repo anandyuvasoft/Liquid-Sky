@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title
+      | StreetMap
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body
+    = render 'shared/header'
+    .container-fluid
+      = render "shared/flash_message"
+      = yield
+
+

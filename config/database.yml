@@ -1,26 +1,27 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-
 default: &default
   adapter: postgresql
-  encoding: utf8
-  pool: 5
-  username: postgres
-  password: cisin123
-
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
 
 development:
   <<: *default
-  database: demo_project_dev
+  host: localhost
+  database: open_street_map_dev
+  username: postgres
+  password: cisin123
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: demo_project_test
+  host: localhost
+  database: open_street_map_test
+  username: postgres
+  password: cisin123
+
+production:
+  <<: *default
+  host: localhost
+  database: open_street_map_production
+  username: postgres
+  password: cisin123
 

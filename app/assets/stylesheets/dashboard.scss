@@ -1,0 +1,18 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.bg-1 {
+  background-color: lightskyblue;
+  color: #fff;
+}
+
+.dashboard>.container-fluid {
+  padding: 70px 0px;
+  margin: 20px 0px;
+}
+
+#map{
+  height:500px;
+}

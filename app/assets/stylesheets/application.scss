@@ -1,0 +1,14 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "dataTables/jquery.dataTables";
+@import "leaflet";
+@import "dashboard";
+
+
+.navbar-brand {
+  float: left;
+  padding: 10px 19px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 55px;
+}
